@@ -3,9 +3,13 @@ $(document).ready(function() {
 
 $("#content").append($("<div>").load("pages/page1.html"));
 
+// $("#content").append($("#menu").clone())
+
+// //$("#content").find("#menu").children().find('ol').contents().unwrap()
 var lis = $("#menu").children().find('li').toArray()
  numbers = getNumbers();
 
+// var offset = 1
 
 for (var i = 0; i < lis.length; i++)
 {
@@ -13,14 +17,37 @@ for (var i = 0; i < lis.length; i++)
     lis[i].addEventListener("click", changePage)
 }
 
+// for (var i = 0; i < lis.length; i++)
+// {
+//     if (isInt(numbers[i]))
+//     {
+//         lis[i].id = 'page' + offset
+//         $("#page" + numbers[i]).prepend($("<div>").load('pages/page' + numbers[i] + '.html'));
+//         offset++;
+//     }
+
+//     var numberBox = document.createElement('div');
+//    // console.log(numberBox);
+//     numberBox.className = 'numberbox-unselected';
+//     numberBox.innerHTML = '<div>' + numbers[i] + '</div>';
+//     lis[i].prepend(numberBox);
+//     lis[i].className = "remove-before"
+
+   
+// }
+
+
+
 });
 
 function changePage(e) {
     var clean = Math.floor(e.target.id)
+    console.log(e.target.nodeName)
     if (e.target.nodeName == 'OL')
     {
         return
     }
+   // console.log("changing from " + e.target.id +  " to " + clean)
     $("#content").empty()
     $("#content").append($("<div>").load('pages/page' + clean + '.html'));
 
@@ -36,6 +63,34 @@ function changePage(e) {
     }
 
 }
+
+// function isInt(n) {
+//    return n % 1 === 0;
+// }
+
+// function createTitles() {
+//     titles = getNumbers();
+//     names = getTitles();
+
+//     for (var i = 0; i < titles.length; i++)
+//     {
+//         var fullName = titles[i] + ' ' + names[i]
+//        $("#content").append('<h1>' + fullName + '</h1>')
+//     }
+// }
+
+// function getTitles() {
+//     var menu = document.getElementById('content').getElementsByClassName('menu')[0];
+//     var items = menu.getElementsByTagName("h2");
+//     var i = 0;
+//     var titles = [];
+//     for (i = 0; i < items.length; i++)
+//     {
+//         var text = items[i].innerText
+//         titles.push(text)
+//     }
+//     return titles;
+// }
 
 /* 
 List numbers are created by css. Unfortunately JS cannot read css values so have to recalculate them in JS.
