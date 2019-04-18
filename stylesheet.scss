@@ -1,0 +1,134 @@
+.navbar {
+	width: 100%;
+	background-color: #f9f9f9;
+
+	.search {
+		.search-bar {
+			padding-left: 5px;
+			margin-top: 10px;
+			position: absolute;
+			top: 0px;
+			width: 90%;
+		}
+
+	}
+
+	.nav-wrapper 
+	{
+		margin-top: 20px;
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		.menu {
+
+			.remove-before::before {
+				display: none;
+			}
+
+			.remove-before 
+			{
+				list-style-type: none;
+			}
+
+			.menu-list {
+				counter-reset: item;
+				list-style-type: none;
+				padding: 0;
+				margin-left: 70px;
+
+				.highlighted::before {
+					background-color: #1976d2;
+					color: white;
+				}
+
+				li {
+					counter-increment: count;
+					margin-top: 10px;
+					word-wrap: normal;
+					.inner-list {
+						counter-reset: item;
+						list-style-type: none;
+						li {
+							padding-left: 6px;
+						}
+					}
+				}
+
+				li::before {
+					width: 30px;
+					text-align: center;
+					padding-top: 2px;
+					padding-bottom: 2px;
+					content: counters(item, ".") " "; counter-increment: item;
+					font-weight: bold;
+					display: inline-block;
+					margin-left: -50px;
+					margin-right: 15px;
+				}
+
+			}
+		}
+	}
+
+}
+
+.content {
+}
+
+.page {
+	padding-top: 10px;
+
+	.page-header{
+		padding-bottom: 10px;
+
+		.numberbox {
+			display: inline-block;
+			background-color: #1976d2;
+			width: 60px;
+			text-align: center;
+			content: counters(item, ".") " "; counter-increment: item;
+			font-weight: bold;
+			display: inline-block;
+			color: white;
+			margin-right: 20px;
+			font-size: 2.5rem;
+		}
+
+		.title {
+			display: inline-block;
+			vertical-align: bottom;
+		}
+
+	}
+}
+
+
+.header {
+	width: 100%;
+	height: 120px;
+	background-color: #1976d2;
+	color: white;
+	padding-top: 20px;
+}
+
+.numberbox-unselected {
+	display: inline-block;
+	width: 60px;
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	content: counters(item, ".") " "; counter-increment: item;
+	font-weight: bold;
+	display: inline-block;
+	color: black;
+	margin-right: 20px;
+	font-size: 2.5rem;
+}
+
+li {
+	cursor: pointer;
+}
+
+.searching {
+	margin-top: 20px;
+}

@@ -8,7 +8,7 @@ To create a new page:
 3. Set titles for subpages within the html file as 
 ```
 	<div class="page-header">
-		<div class="numberbox"><Page Number Goes Here> </div>
+		<div class="numberbox"><Page Number with decimal Goes Here> </div>
 		<div class="title">
 			<h1>
 				<Page Title Goes Here>
