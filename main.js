@@ -39,11 +39,10 @@ function changePage(e) {
         function() {
             var $container = $('div')
             var scrollTo = $(".page").find('h1:contains(' + e.target.id + ')')
-            if (scrollTo !== null)
+            if (scrollTo.length)
             {
                 $('html,body').animate({scrollTop: scrollTo.offset().top});
             }
-
         }
 
     ));
