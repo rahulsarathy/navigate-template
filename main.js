@@ -81,6 +81,10 @@ function search() {
                 lis[i].style.display = "none"
             }
             else {
+                if (lis[i].parentElement.tagName === 'LI')
+                {
+                    lis[i].parentElement.style.display = ""
+                }
                 lis[i].style.display = ""
             }
             lis[i].classList.add('searching')

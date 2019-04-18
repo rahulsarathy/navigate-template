@@ -30,7 +30,7 @@
 .nav-wrapper {
 	margin-top: 20px;
 	position: absolute;
-	top: 0;
+	top: 20px;
 	left: 20px;
 }
 
@@ -43,13 +43,16 @@
 }
 
 .search {
-
 }
 
 
 .search-bar {
-	margin-left: 5px;
-	width: 100%;
+	padding-left: 5px;
+	margin-top: 10px;
+	position: absolute;
+	top: 0px;
+	width: 90%;
+
 }
 
 .menu-list {
@@ -134,5 +137,5 @@ li {
 }
 
 .searching {
-	padding-top: 10px;
+	margin-top: 20px;
 }
