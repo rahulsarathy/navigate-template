@@ -1,78 +1,96 @@
-.navbar {
+.header {
 	width: 100%;
-	background-color: #f9f9f9;
+	height: 120px;
+	background-color: #1976d2;
+	color: white;
+	padding-top: 20px;
+}
 
-	.search {
-		.search-bar {
-			padding-left: 5px;
-			margin-top: 10px;
-			position: absolute;
-			top: 0px;
-			width: 90%;
-		}
+.row {
+
+	.content 
+	{
 
 	}
 
-	.nav-wrapper 
-	{
-		margin-top: 20px;
-		position: absolute;
-		top: 20px;
-		left: 20px;
-		.menu {
+	.navbar {
+		width: 100%;
+		background-color: #f9f9f9;
 
-			.remove-before::before {
-				display: none;
+		.search {
+			.search-bar {
+				padding-left: 5px;
+				margin-top: 10px;
+				position: absolute;
+				top: 0px;
+				width: 90%;
 			}
 
-			.remove-before 
-			{
-				list-style-type: none;
-			}
+		}
 
-			.menu-list {
-				counter-reset: item;
-				list-style-type: none;
-				padding: 0;
-				margin-left: 70px;
+		.nav-wrapper 
+		{
+			margin-top: 20px;
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			.menu {
 
-				.highlighted::before {
-					background-color: #1976d2;
-					color: white;
+				.remove-before::before {
+					display: none;
 				}
 
-				li {
-					counter-increment: count;
-					margin-top: 10px;
-					word-wrap: normal;
-					.inner-list {
-						counter-reset: item;
-						list-style-type: none;
-						li {
-							padding-left: 6px;
-						}
+				.remove-before 
+				{
+					list-style-type: none;
+
+					.searching {
+						margin-top: 20px;
 					}
 				}
 
-				li::before {
-					width: 30px;
-					text-align: center;
-					padding-top: 2px;
-					padding-bottom: 2px;
-					content: counters(item, ".") " "; counter-increment: item;
-					font-weight: bold;
-					display: inline-block;
-					margin-left: -50px;
-					margin-right: 15px;
-				}
+				.menu-list {
+					counter-reset: item;
+					list-style-type: none;
+					padding: 0;
+					margin-left: 70px;
 
+					.highlighted::before {
+						background-color: #1976d2;
+						color: white;
+					}
+
+					li {
+						counter-increment: count;
+						margin-top: 10px;
+						word-wrap: normal;
+						.inner-list {
+							counter-reset: item;
+							list-style-type: none;
+							li {
+								padding-left: 6px;
+							}
+						}
+					}
+
+					li::before {
+						width: 30px;
+						text-align: center;
+						padding-top: 2px;
+						padding-bottom: 2px;
+						content: counters(item, ".") " "; counter-increment: item;
+						font-weight: bold;
+						display: inline-block;
+						margin-left: -50px;
+						margin-right: 15px;
+					}
+
+				}
 			}
 		}
+
 	}
 
-}
-
-.content {
 }
 
 .page {
@@ -102,15 +120,6 @@
 	}
 }
 
-
-.header {
-	width: 100%;
-	height: 120px;
-	background-color: #1976d2;
-	color: white;
-	padding-top: 20px;
-}
-
 .numberbox-unselected {
 	display: inline-block;
 	width: 60px;
@@ -127,8 +136,4 @@
 
 li {
 	cursor: pointer;
-}
-
-.searching {
-	margin-top: 20px;
 }
