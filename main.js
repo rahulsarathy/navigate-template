@@ -1,22 +1,24 @@
 let menu_clone;
+let numbers;
 
 $(document).ready(function() {
 
+//Start with page 1
 $("#content").append($("<div>").load("pages/page1.html"));
-
 
 document.getElementById('search-bar').addEventListener('keyup', search)
 
+numbers = getNumbers();
 setEventListeners();
 
+//use this to reset menu when search is empty string
 menu_clone = $("#menu").clone(true);
 
 });
 
+/* Adds links to each menu item*/
 function setEventListeners()
 {
-    numbers = getNumbers();
-
     var lis = $("#menu").children().find('li').toArray()
     for (var i = 0; i < lis.length; i++)
     {
@@ -25,22 +27,35 @@ function setEventListeners()
     }
 }
 
-
 function changePage(e) {
     var clean = Math.floor(e.target.id)
     if (e.target.nodeName == 'OL')
     {
         return
     }
+
     $("#content").empty()
-    $("#content").append($("<div>").load('pages/page' + clean + '.html'));
+    $("#content").append($("<div>").load('pages/page' + clean + '.html',
+        function() {
+            var $container = $('div')
+            var scrollTo = $(".page").find('h1:contains(' + e.target.id + ')')
+            if (scrollTo !== null)
+            {
+                $('html,body').animate({scrollTop: scrollTo.offset().top});
+            }
+
+        }
+
+    ));
+
+  //  $("h1:contains(" + e.target.id + ')')
 
     var lis = $("#menu").children().find('li').toArray()
 
     for (var i = 0; i < lis.length; i++)
     {
         lis[i].classList.remove('highlighted');
-        if (lis[i].id == clean)
+        if (lis[i].id == e.target.id)
         {
             lis[i].classList.add('highlighted')
         }
