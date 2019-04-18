@@ -1,24 +1,33 @@
-$(document).ready(function() {
+let menu_clone;
 
+$(document).ready(function() {
 
 $("#content").append($("<div>").load("pages/page1.html"));
 
 
-var lis = $("#menu").children().find('li').toArray()
- numbers = getNumbers();
+document.getElementById('search-bar').addEventListener('keyup', search)
 
+setEventListeners();
 
-for (var i = 0; i < lis.length; i++)
-{
-    lis[i].id = numbers[i]
-    lis[i].addEventListener("click", changePage)
-}
+menu_clone = $("#menu").clone(true);
 
 });
 
+function setEventListeners()
+{
+    numbers = getNumbers();
+
+    var lis = $("#menu").children().find('li').toArray()
+    for (var i = 0; i < lis.length; i++)
+    {
+        lis[i].id = numbers[i]
+        lis[i].addEventListener("click", changePage)
+    }
+}
+
+
 function changePage(e) {
     var clean = Math.floor(e.target.id)
-    console.log(e.target.nodeName)
     if (e.target.nodeName == 'OL')
     {
         return
@@ -36,7 +45,33 @@ function changePage(e) {
             lis[i].classList.add('highlighted')
         }
     }
+}
 
+function search() {
+    var lis = $("#menu").children().find('li').toArray()
+
+    var filter = document.getElementById('search-bar').value.toUpperCase();
+    if (filter === "")
+    {
+        $("#menu").replaceWith(menu_clone.clone(true));
+        setEventListeners();
+    }
+    else {
+        $("#menu").find('.inner-list').children().unwrap()
+        $("#menu").find('ol').attr('class', 'remove-before')
+
+        for (var i = 0; i < lis.length; i++)
+        {
+            if (!(lis[i].firstChild.nodeValue.trim().toUpperCase().indexOf(filter) > -1))
+            {
+                lis[i].style.display = "none"
+            }
+            else {
+                lis[i].style.display = ""
+            }
+            lis[i].classList.add('searching')
+        }
+    }
 }
 
 /* 

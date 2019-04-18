@@ -43,13 +43,13 @@
 }
 
 .search {
-	width: 100%;
+
 }
 
 
 .search-bar {
 	margin-left: 5px;
-	width: 100%;
+	width: 340px;
 }
 
 .menu-list {
@@ -115,6 +115,10 @@
 	display: none;
 }
 
+.remove-before {
+	list-style-type: none;
+}
+
 .inner-list {
 	counter-reset: item;
 	list-style-type: none;
@@ -126,4 +130,8 @@
 
 li {
 	cursor: pointer;
+}
+
+.searching {
+	padding-top: 10px;
 }
